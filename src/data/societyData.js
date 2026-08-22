@@ -23,6 +23,12 @@ export const SOCIETY_DATA = {
     ]
   },
 
+  membership: {
+    lead: "The membership is only £20 for a year and £30 for a lifetime for current students, staff, and alumni.",
+    annualPrice: "£20",
+    lifePrice: "£30"
+  },
+
   termCard: {
     title: "OUBS Term Card",
     term: "Michaelmas Term 2026",

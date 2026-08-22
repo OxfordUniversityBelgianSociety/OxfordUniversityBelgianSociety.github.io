@@ -224,6 +224,7 @@ function SketchyAtomium({ highlight }) {
 export default function Membership() {
   const [hoveredTier, setHoveredTier] = useState(null);
   const { links } = SOCIETY_DATA.society;
+  const { membership } = SOCIETY_DATA;
 
   return (
     <section id="membership" className="membership-section">
@@ -233,7 +234,7 @@ export default function Membership() {
             <span className="section-kicker">Membership &amp; Community</span>
             <h2 className="membership-title">Become an OUBS Member</h2>
             <p className="membership-lead">
-              Membership is open to all Oxford students, researchers, alumni, and friends of Belgian culture. Join us to unlock discounted event tickets, priority banquet access, and invitations to exclusive tastings.
+              The membership is only £20 for a year and £30 for a lifetime for current students, staff, and alumni. Join us to unlock discounted event tickets, priority banquet access, and invitations to exclusive tastings.
             </p>
 
             <ul className="benefits-list">
@@ -273,7 +274,10 @@ export default function Membership() {
                 onMouseLeave={() => setHoveredTier(null)}
               >
                 <div className="tier-info">
-                  <h3>Annual Membership</h3>
+                  <div className="tier-title-row">
+                    <h3>Annual Membership</h3>
+                    <span className="tier-price-pill">{membership.annualPrice}</span>
+                  </div>
                   <p>Full access for the current academic year across all three terms.</p>
                 </div>
                 <a href={links.membershipForm} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-gold">
@@ -287,7 +291,10 @@ export default function Membership() {
                 onMouseLeave={() => setHoveredTier(null)}
               >
                 <div className="tier-info">
-                  <h3>Life Membership</h3>
+                  <div className="tier-title-row">
+                    <h3>Life Membership</h3>
+                    <span className="tier-price-pill">{membership.lifePrice}</span>
+                  </div>
                   <p>Lifetime access for your entire degree and beyond as an active alumnus.</p>
                 </div>
                 <a href={links.membershipForm} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-gold">
@@ -301,7 +308,10 @@ export default function Membership() {
                 onMouseLeave={() => setHoveredTier(null)}
               >
                 <div className="tier-info">
-                  <h3>Mailing List (Free)</h3>
+                  <div className="tier-title-row">
+                    <h3>Mailing List</h3>
+                    <span className="tier-price-pill tier-price-free">Free</span>
+                  </div>
                   <p>Stay informed about term cards, open lectures, and public ticket drops.</p>
                 </div>
                 <a href={links.emailList} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline">
