@@ -239,19 +239,15 @@ export default function Membership() {
             <ul className="benefits-list">
               <li>
                 <span className="check-icon">✓</span>
-                <span>Discounted or free entry to all OUBS tastings and social events</span>
+                <span>Discounted or free entry to OUBS events</span>
               </li>
               <li>
                 <span className="check-icon">✓</span>
-                <span>Priority booking & member pricing for the Annual Black Tie Banquet</span>
+                <span>Priority booking for the Annual Black Tie Banquet</span>
               </li>
               <li>
                 <span className="check-icon">✓</span>
-                <span>Reciprocal member ticket rights at Cambridge (CUBS) & London (LUBS) events</span>
-              </li>
-              <li>
-                <span className="check-icon">✓</span>
-                <span>Exclusive termly newsletter dispatches and alumni career network</span>
+                <span>Ticket rights at Cambridge (CUBS) & London (LUBS) events</span>
               </li>
             </ul>
 
