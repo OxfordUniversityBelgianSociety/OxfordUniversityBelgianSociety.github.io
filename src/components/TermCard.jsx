@@ -308,14 +308,18 @@ export default function TermCard() {
   return (
     <section id="term-card" className="term-card-section">
       <div className="section-container">
-        <div className="termcard-layout-grid">
-          <div className="termcard-main-col">
-            <div className="termcard-header-block">
-              <span className="section-kicker">📅 {termCard.term}</span>
-              <h2 className="termcard-title">{termCard.title}</h2>
-              <p className="termcard-lead">{termCard.description}</p>
-            </div>
+        <div className="termcard-header-block">
+          <span className="section-kicker">📅 {termCard.term}</span>
+          <h2 className="termcard-title">{termCard.title}</h2>
+          <p className="termcard-lead">{termCard.description}</p>
+        </div>
 
+        <div className="termcard-canvas-wrap">
+          <div className="termcard-fries-backdrop" aria-hidden="true">
+            <FriesSketch />
+          </div>
+
+          <div className="termcard-main-col">
             {termCard.imageUrl ? (
               <div className="termcard-poster-frame">
                 <img
@@ -348,7 +352,6 @@ export default function TermCard() {
                   {termCard.events.map((evt, idx) => (
                     <div key={idx} className={`termcard-event-row ${evt.isPlaceholder ? 'is-placeholder' : ''}`}>
                       <div className="termcard-event-week">{evt.week}</div>
-                      <div className="termcard-event-icon">{evt.icon}</div>
                       <div className="termcard-event-info">
                         <h4>{evt.title}</h4>
                         <p>{evt.desc}</p>
@@ -381,10 +384,6 @@ export default function TermCard() {
                 Join Mailing List
               </a>
             </div>
-          </div>
-
-          <div className="termcard-sketch-slot">
-            <FriesSketch />
           </div>
         </div>
       </div>

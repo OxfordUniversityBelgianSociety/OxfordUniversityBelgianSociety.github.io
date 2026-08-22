@@ -687,27 +687,22 @@ section {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Term Card Simplified Section with Sketch */
+/* Term Card Section with Fries Backdrop */
 .term-card-section {
   background: #ffffff;
   border-bottom: 1px solid var(--border-color);
   padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
 }
-.termcard-layout-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 48px;
-  align-items: center;
-}
-.termcard-main-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
 .termcard-header-block {
-  display: flex;
-  flex-direction: column;
+  max-width: 620px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
 }
+
 .termcard-title {
   font-family: 'Playfair Display', serif;
   font-size: 2.3rem;
@@ -716,23 +711,75 @@ section {
   color: var(--oxford-blue);
   margin: 6px 0 10px;
 }
+
 .termcard-lead {
   font-size: 1.02rem;
   color: var(--text-muted);
-  margin-bottom: 12px;
   line-height: 1.6;
+  margin: 0;
 }
+
+.termcard-canvas-wrap {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+}
+
+.termcard-fries-backdrop {
+  position: absolute;
+  right: -100px;
+  top: -85px;
+  width: 520px;
+  height: 560px;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.82;
+  transform: rotate(8deg);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+}
+
+.termcard-sketch-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.termcard-sketch-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.termcard-main-col {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 680px;
+}
+
 .termcard-poster-frame {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px) saturate(170%);
+  -webkit-backdrop-filter: blur(10px) saturate(170%);
+  border: 1px solid rgba(220, 208, 190, 0.65);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 6px 24px rgba(0, 33, 71, 0.06);
   overflow: hidden;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
+
 .termcard-poster-frame:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 32px rgba(0, 33, 71, 0.1);
+  border-color: var(--belgian-gold);
 }
+
 .termcard-full-poster {
   width: 100%;
   height: auto;
@@ -806,17 +853,18 @@ section {
 }
 .termcard-event-row {
   display: grid;
-  grid-template-columns: 96px 44px 1fr;
+  grid-template-columns: 84px 1fr;
   align-items: center;
-  padding: 16px 24px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 12px 20px;
+  gap: 16px;
+  border-bottom: 1px solid rgba(220, 208, 190, 0.45);
   transition: background var(--transition-fast);
 }
 .termcard-event-row:last-child {
   border-bottom: none;
 }
 .termcard-event-row:hover {
-  background: var(--bg-card-alt);
+  background: rgba(255, 255, 255, 0.92);
 }
 .termcard-event-week {
   font-size: 0.78rem;
@@ -824,12 +872,6 @@ section {
   text-transform: uppercase;
   color: var(--belgian-red);
   letter-spacing: 0.04em;
-}
-.termcard-event-icon {
-  font-size: 1.45rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .termcard-event-info h4 {
   font-size: 0.96rem;
@@ -879,51 +921,42 @@ section {
   align-items: center;
 }
 
-.termcard-sketch-slot {
-  min-height: 380px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.termcard-sketch-wrap {
-  width: 100%;
-  max-width: 320px;
-  height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--transition-normal);
-}
-.termcard-sketch-wrap:hover {
-  transform: translateY(-4px) scale(1.03);
-}
-.termcard-sketch-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-}
-
 @media (max-width: 992px) {
-  .termcard-layout-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
+  .termcard-main-col {
+    max-width: 520px;
   }
-  .termcard-sketch-slot {
-    display: none;
+  .termcard-fries-backdrop {
+    width: 450px;
+    height: 480px;
+    right: -100px;
+    top: -75px;
+    opacity: 0.76;
+    transform: rotate(9deg);
   }
 }
 
 @media (max-width: 600px) {
+  .termcard-main-col {
+    width: 86%;
+    max-width: 350px;
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .termcard-fries-backdrop {
+    width: 400px;
+    height: 440px;
+    right: -130px;
+    top: -65px;
+    opacity: 0.74;
+    transform: rotate(10deg);
+  }
   .termcard-event-row {
-    grid-template-columns: 80px 36px 1fr;
-    padding: 14px 16px;
-    gap: 8px;
+    grid-template-columns: 70px 1fr;
+    padding: 10px 14px;
+    gap: 10px;
   }
   .termcard-poster-header {
-    padding: 16px;
+    padding: 14px 16px;
   }
 }
 
@@ -2103,9 +2136,9 @@ section {
     text-align: center;
   }
   .termcard-event-row {
-    grid-template-columns: 76px 30px 1fr;
-    padding: 12px 14px;
-    gap: 8px;
+    grid-template-columns: 70px 1fr;
+    padding: 11px 14px;
+    gap: 10px;
   }
 
   .contacts-section {
@@ -2170,15 +2203,12 @@ section {
     text-align: center;
   }
   .termcard-event-row {
-    grid-template-columns: 66px 26px 1fr;
+    grid-template-columns: 62px 1fr;
     padding: 10px 12px;
-    gap: 6px;
+    gap: 8px;
   }
   .termcard-event-week {
     font-size: 0.7rem;
-  }
-  .termcard-event-icon {
-    font-size: 1.15rem;
   }
   .termcard-event-info h4 {
     font-size: 0.88rem;

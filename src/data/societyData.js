@@ -33,28 +33,28 @@ export const SOCIETY_DATA = {
       {
         week: "1st Week",
         title: "Freshers' Welcome Drinks",
-        desc: "Meet undergraduate and graduate Belgian students over traditional Belgian beers and soft drinks.",
+        desc: "Date and location to be announced.",
         icon: "🍻",
         isPlaceholder: false
       },
       {
         week: "TBA",
         title: "Event II — In Preparation",
-        desc: "Details and venue to be announced ahead of 0th Week.",
+        desc: "Details tbc.",
         icon: "⏳",
         isPlaceholder: true
       },
       {
         week: "TBA",
         title: "Event III — In Preparation",
-        desc: "Details and venue to be announced ahead of 0th Week.",
+        desc: "Details tbc.",
         icon: "⏳",
         isPlaceholder: true
       },
       {
         week: "TBA",
         title: "Event IV — In Preparation",
-        desc: "Details and venue to be announced ahead of 0th Week.",
+        desc: "Details tbc.",
         icon: "⏳",
         isPlaceholder: true
       }
