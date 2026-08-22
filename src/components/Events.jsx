@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function EventsSketch() {
+function EventsSketch({ highlight }) {
+  const isChocActive = highlight === 'chocolate' || highlight === 'both';
+  const isBeerActive = highlight === 'beer' || highlight === 'emblem' || highlight === 'both';
+  const isEmblemActive = highlight === 'emblem';
+
+  const isChocDimmed = highlight && !isChocActive;
+  const isBeerDimmed = highlight && !isBeerActive;
+
   return (
     <div className="events-sketch-wrap" aria-hidden="true">
       <svg
@@ -10,7 +17,6 @@ function EventsSketch() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Pastel Chocolate gradients */}
           <linearGradient id="choc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#a3826c" />
             <stop offset="50%" stopColor="#8e6d58" />
@@ -26,7 +32,6 @@ function EventsSketch() {
             <stop offset="100%" stopColor="#dcd0be" />
           </linearGradient>
 
-          {/* Pastel Beer bottle gradients */}
           <linearGradient id="beer-glass-grad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#edd5bc" />
             <stop offset="30%" stopColor="#deb997" />
@@ -38,12 +43,23 @@ function EventsSketch() {
             <stop offset="50%" stopColor="#f5dc93" />
             <stop offset="100%" stopColor="#e3c26d" />
           </linearGradient>
+
+          <filter id="beer-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="10" floodColor="#f59e0b" floodOpacity="0.55" />
+          </filter>
+          <filter id="choc-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="4" stdDeviation="10" floodColor="#b45309" floodOpacity="0.5" />
+          </filter>
+          <filter id="emblem-glow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="0" stdDeviation="8" floodColor="#f59e0b" floodOpacity="0.8" />
+          </filter>
         </defs>
 
         <g>
-          {/* ================= CHOCOLATE BAR (BACKGROUND) ================= */}
-          <g transform="rotate(8 270 240)">
-            {/* Chocolate Bar Base Backing */}
+          <g
+            transform="rotate(8 270 240)"
+            className={`sketch-element sketch-chocolate ${isChocActive ? 'is-active' : ''} ${isChocDimmed ? 'is-dimmed' : ''}`}
+          >
             <rect
               x="180"
               y="70"
@@ -55,7 +71,6 @@ function EventsSketch() {
               strokeWidth="7"
             />
 
-            {/* Chocolate Squares Grid (2 columns x 4 rows) */}
             {[
               { x: 195, y: 85 },
               { x: 270, y: 85 },
@@ -67,7 +82,6 @@ function EventsSketch() {
               { x: 270, y: 265 },
             ].map((sq, i) => (
               <g key={i}>
-                {/* Square outer block */}
                 <rect
                   x={sq.x}
                   y={sq.y}
@@ -78,7 +92,6 @@ function EventsSketch() {
                   stroke="#18181b"
                   strokeWidth="4.5"
                 />
-                {/* Inner beveled tile */}
                 <rect
                   x={sq.x + 8}
                   y={sq.y + 6}
@@ -89,7 +102,6 @@ function EventsSketch() {
                   stroke="#18181b"
                   strokeWidth="3.5"
                 />
-                {/* Specular edge highlight */}
                 <path
                   d={`M ${sq.x + 10} ${sq.y + 38} L ${sq.x + 10} ${sq.y + 8} L ${sq.x + 50} ${sq.y + 8}`}
                   stroke="#cfb39e"
@@ -100,7 +112,6 @@ function EventsSketch() {
               </g>
             ))}
 
-            {/* Torn Wrapper / Foil Bottom */}
             <path
               d="M176 250 L195 240 L220 252 L250 238 L285 250 L320 236 L354 248 L354 354 Q354 362 344 362 L188 362 Q176 362 176 350 Z"
               fill="url(#wrapper-gold)"
@@ -108,14 +119,11 @@ function EventsSketch() {
               strokeWidth="7"
               strokeLinejoin="round"
             />
-            {/* Wrapper creases & foil folds */}
             <path d="M195 240 L210 270 M250 238 L260 275 M320 236 L310 270" stroke="#18181b" strokeWidth="4" strokeLinecap="round" opacity="0.6" />
             <path d="M190 310 L340 310" stroke="#18181b" strokeWidth="3" strokeDasharray="6 4" opacity="0.4" />
           </g>
 
-          {/* ================= BEER BOTTLE (FOREGROUND) ================= */}
-          <g>
-            {/* Bottle Body Fill & Outline */}
+          <g className={`sketch-element sketch-beer ${isBeerActive ? 'is-active' : ''} ${isBeerDimmed ? 'is-dimmed' : ''}`}>
             <path
               d="M142 50
                  L166 50
@@ -135,7 +143,6 @@ function EventsSketch() {
               strokeLinejoin="round"
             />
 
-            {/* Glass Curved Specular Highlights (Left Side) */}
             <path
               d="M112 225 L112 385"
               stroke="#ffffff"
@@ -151,7 +158,6 @@ function EventsSketch() {
               opacity="0.35"
             />
 
-            {/* Neck Gold Collar Band */}
             <rect
               x="142"
               y="85"
@@ -163,7 +169,6 @@ function EventsSketch() {
               strokeWidth="5"
             />
 
-            {/* Crown Bottle Cap */}
             <path
               d="M136 50 Q154 42 172 50 L170 58 L138 58 Z"
               fill="url(#cap-gold)"
@@ -171,16 +176,14 @@ function EventsSketch() {
               strokeWidth="6"
               strokeLinejoin="round"
             />
-            {/* Crown cap crimps */}
             <path d="M139 56 L141 51 M147 57 L148 50 M154 57 L154 49 M161 57 L160 50 M167 56 L165 51" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" />
 
-            {/* Oval Label on Belly */}
-            <g transform="translate(154, 305)">
-              {/* Outer label parchment */}
+            <g
+              transform="translate(154, 305)"
+              className={`sketch-element sketch-emblem ${isEmblemActive ? 'is-active' : ''}`}
+            >
               <ellipse cx="0" cy="0" rx="42" ry="54" fill="#faf8f3" stroke="#18181b" strokeWidth="6" />
-              {/* Inner gold border ring */}
               <ellipse cx="0" cy="0" rx="34" ry="45" fill="none" stroke="#e3c26d" strokeWidth="3.5" />
-              {/* Belgian Emblem on label */}
               <path
                 d="M-10 -15 Q0 -25 10 -15 Q15 0 0 15 Q-15 0 -10 -15 Z"
                 fill="#e3c26d"
@@ -188,7 +191,6 @@ function EventsSketch() {
                 strokeWidth="3"
               />
               <circle cx="0" cy="-6" r="3.5" fill="#18181b" />
-              {/* Label text banner imitation */}
               <path d="M-22 24 Q0 28 22 24" stroke="#18181b" strokeWidth="3" strokeLinecap="round" />
               <path d="M-16 32 Q0 35 16 32" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" />
             </g>
@@ -200,23 +202,29 @@ function EventsSketch() {
 }
 
 export default function Events() {
+  const [hoveredType, setHoveredType] = useState(null);
+
   const eventCategories = [
     {
+      type: 'beer',
       icon: '🍻',
       title: 'Regular Socials & Tastings',
       desc: 'Fortnightly pub gatherings, guided Belgian beer and chocolate tastings, inter-society mixers, and casual college meetups.',
     },
     {
+      type: 'chocolate',
       icon: '👔',
       title: 'Annual Black Tie Banquet',
       desc: 'Our flagship formal gala hosted in a historic Oxford college dining hall, featuring a multi-course feast, welcome reception, and after-dinner drinks.',
     },
     {
+      type: 'emblem',
       icon: '🏛️',
       title: 'Annual Embassy Visit & Reception',
       desc: 'An exclusive annual trip to London for a private drinks reception and diplomatic networking evening at the Embassy of Belgium.',
     },
     {
+      type: 'both',
       icon: '🎓',
       title: 'Tri-Varsity Mixers',
       desc: 'Joint social gatherings, exchanges, and collaborative events with our counterpart Belgian societies from Cambridge (CUBS) and London (LUBS).',
@@ -226,29 +234,34 @@ export default function Events() {
   return (
     <section id="events" className="events-section">
       <div className="section-container">
-        <div className="events-layout-grid">
-          <div className="events-main-col">
-            <span className="section-kicker">Society Life &amp; Calendar</span>
-            <h2 className="events-title">Events &amp; Traditions</h2>
-            <p className="events-lead">
-              Throughout the academic year, OUBS curates a rich variety of social and formal occasions that bring together the Belgians of Oxford.
-            </p>
+        <div className="events-header">
+          <span className="section-kicker">Society Life &amp; Calendar</span>
+          <h2 className="events-title">Events &amp; Traditions</h2>
+          <p className="events-lead">
+            Throughout the academic year, OUBS curates a rich variety of social and formal occasions that bring together the Belgians of Oxford.
+          </p>
+        </div>
 
-            <div className="events-cards-grid">
-              {eventCategories.map((item, idx) => (
-                <div key={idx} className="event-feature-card">
-                  <div className="event-feature-icon">{item.icon}</div>
-                  <div className="event-feature-body">
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="events-canvas-wrap">
+          <div className="events-sketch-backdrop" aria-hidden="true">
+            <EventsSketch highlight={hoveredType} />
           </div>
 
-          <div className="events-sketch-slot">
-            <EventsSketch />
+          <div className="events-cards-grid">
+            {eventCategories.map((item, idx) => (
+              <div
+                key={idx}
+                className={`event-feature-card ${hoveredType === item.type ? 'is-focused' : ''}`}
+                onMouseEnter={() => setHoveredType(item.type)}
+                onMouseLeave={() => setHoveredType(null)}
+              >
+                <div className="event-feature-icon">{item.icon}</div>
+                <div className="event-feature-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
