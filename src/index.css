@@ -78,6 +78,9 @@ body {
 .ticker-dot {
   color: var(--belgian-gold-light);
 }
+.ticker-society-name {
+  display: inline;
+}
 
 .site-nav {
   position: sticky;
@@ -1747,23 +1750,74 @@ section {
 }
 
 @media (max-width: 768px) {
+  .multilingual-ticker {
+    font-size: 0.73rem;
+    padding: 6px 12px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .multilingual-ticker span {
+    gap: 6px;
+  }
+  .ticker-society-name {
+    display: none;
+  }
+
+  .site-nav {
+    top: 5px;
+  }
+  .nav-container {
+    padding: 8px 16px;
+  }
+  .nav-brand-logo {
+    height: 42px;
+    max-height: 44px;
+    max-width: 220px;
+  }
+
+  section {
+    padding: 50px 18px;
+  }
+  .section-header {
+    margin-bottom: 32px;
+  }
+  .section-title {
+    font-size: 1.95rem;
+    line-height: 1.25;
+  }
+  .section-desc {
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+  .section-kicker {
+    font-size: 0.76rem;
+  }
+
   .hero-classic-section {
-    padding: 36px 16px 40px;
+    padding: 34px 16px 36px;
   }
   .hero-title-row {
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
   }
   .hero-classic-title {
-    font-size: 2.1rem;
+    font-size: 1.95rem;
+    line-height: 1.2;
     order: 2;
     width: 100%;
+    word-wrap: break-word;
   }
   .sketchy-flag-wrap {
-    width: 58px;
-    height: 52px;
+    width: 52px;
+    height: 46px;
     order: 1;
   }
+
   .nav-links, .nav-actions-group {
     display: none;
   }
@@ -1805,6 +1859,131 @@ section {
     padding: 8px 18px;
     text-align: center;
   }
+
+  .events-section {
+    padding: 50px 18px;
+  }
+  .events-title {
+    font-size: 1.95rem;
+  }
+  .events-lead {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .event-feature-card {
+    padding: 16px 16px;
+  }
+
+  .membership-section {
+    padding: 50px 18px;
+  }
+  .membership-title {
+    font-size: 1.95rem;
+  }
+  .membership-lead {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+  .benefits-list li {
+    font-size: 0.92rem;
+    gap: 10px;
+  }
+  .membership-action-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .membership-action-row .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .membership-tier-card {
+    padding: 16px 18px;
+  }
+
+  .committee-waffle-section {
+    padding: 50px 18px;
+  }
+  .waffle-interactive-col {
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .waffle-member-spotlight {
+    padding: 22px 18px;
+  }
+  .spotlight-avatar-chip {
+    width: 54px;
+    height: 54px;
+    font-size: 1.3rem;
+  }
+  .spotlight-name {
+    font-size: 1.45rem;
+  }
+  .spotlight-meta-list {
+    gap: 10px;
+    padding-bottom: 18px;
+    margin-bottom: 16px;
+  }
+  .spotlight-meta-item {
+    gap: 10px;
+  }
+  .meta-val {
+    font-size: 0.9rem;
+  }
+  .meta-link {
+    word-break: break-word;
+  }
+  .quick-chips-row {
+    gap: 6px;
+  }
+  .quick-member-chip {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+  }
+
+  .term-card-section {
+    padding: 50px 18px;
+  }
+  .termcard-title {
+    font-size: 1.95rem;
+  }
+  .termcard-lead {
+    font-size: 0.95rem;
+  }
+  .termcard-poster-header {
+    padding: 14px 16px;
+  }
+  .termcard-crest {
+    width: 32px;
+    height: 32px;
+  }
+  .termcard-main-term {
+    font-size: 1.12rem;
+  }
+  .termcard-single-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .termcard-single-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .termcard-event-row {
+    grid-template-columns: 76px 30px 1fr;
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .contacts-section {
+    padding: 50px 18px;
+  }
+  .contact-link-pill {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -1822,5 +2001,68 @@ section {
   }
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 32px;
+  }
+  .site-footer {
+    padding: 48px 18px 24px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title,
+  .events-title,
+  .membership-title,
+  .termcard-title {
+    font-size: 1.65rem;
+  }
+  .hero-classic-title {
+    font-size: 1.65rem;
+  }
+  .sketchy-flag-wrap {
+    width: 44px;
+    height: 40px;
+  }
+  .membership-tier-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .membership-tier-card .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .termcard-event-row {
+    grid-template-columns: 66px 26px 1fr;
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .termcard-event-week {
+    font-size: 0.7rem;
+  }
+  .termcard-event-icon {
+    font-size: 1.15rem;
+  }
+  .termcard-event-info h4 {
+    font-size: 0.88rem;
+  }
+  .termcard-event-info p {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .multilingual-ticker {
+    font-size: 0.68rem;
+    padding: 5px 6px;
+    letter-spacing: 0.01em;
+  }
+  .multilingual-ticker span {
+    gap: 4px;
   }
 }

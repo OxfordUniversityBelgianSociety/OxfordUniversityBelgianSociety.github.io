@@ -17,7 +17,7 @@ export default function Navbar() {
 
       <div className="multilingual-ticker">
         <span>
-          🇧🇪 Bienvenue <span className="ticker-dot">•</span> Welkom <span className="ticker-dot">•</span> Willkommen <span className="ticker-dot">•</span> Welcome to Oxford University Belgian Society
+          🇧🇪 Bienvenue <span className="ticker-dot">•</span> Welkom <span className="ticker-dot">•</span> Willkommen <span className="ticker-dot">•</span> Welcome<span className="ticker-society-name"> to OUBS</span>
         </span>
       </div>
 
