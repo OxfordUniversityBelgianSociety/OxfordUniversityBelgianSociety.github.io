@@ -234,7 +234,7 @@ export default function Membership() {
             <span className="section-kicker">Membership &amp; Community</span>
             <h2 className="membership-title">Become an OUBS Member</h2>
             <p className="membership-lead">
-              The membership is only £20 for a year and £30 for a lifetime for current students, staff, and alumni. Join us to unlock discounted event tickets, priority banquet access, and invitations to exclusive tastings.
+              The membership is only £20 for a year and £35 for a lifetime for current students, staff, and alumni. Join us to unlock discounted event tickets, priority banquet access, and invitations to exclusive tastings.
             </p>
 
             <ul className="benefits-list">
