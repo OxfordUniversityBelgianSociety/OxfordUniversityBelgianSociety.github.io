@@ -34,7 +34,8 @@ website/
 ├── package.json                # Dependencies and scripts
 ├── vite.config.js              # Vite React configuration
 ├── public/
-│   └── favicon.svg             # OUBS crest favicon
+│   ├── favicon.ico             # OUBS crest fallback for browsers and crawlers
+│   └── favicon.png             # 128 × 128 OUBS crest used in search results
 └── src/
     ├── main.jsx                # React app entry point
     ├── App.jsx                 # App layout & toast notification container
@@ -76,6 +77,23 @@ Open `http://localhost:3000` in your browser.
 npm run build
 ```
 Optimized static build output is generated in `dist/`.
+
+### Google search appearance
+
+The homepage declares **Oxford University Belgian Society** as its site name,
+with **OUBS** as the alternative, using `WebSite` structured data and
+`og:site_name` in `index.html`. The search-result icon comes from the linked
+square crest in `public/favicon.png`, with `public/favicon.ico` as a fallback.
+Keep these icon URLs stable and accessible to crawlers.
+
+After deploying changes through the GitHub Pages workflow, use the verified
+[Google Search Console](https://search.google.com/search-console) property for
+`https://oxforduniversitybelgiansociety.github.io/`: inspect the homepage URL,
+test the live URL, and select **Request indexing**. Submit `sitemap.xml` if it
+has not already been submitted. Google chooses the displayed name and icon;
+updates can take several days to several weeks after deployment and are not
+guaranteed. See Google's [site name guidance](https://developers.google.com/search/docs/appearance/site-names)
+and [favicon guidance](https://developers.google.com/search/docs/appearance/favicon-in-search).
 
 ---
 
