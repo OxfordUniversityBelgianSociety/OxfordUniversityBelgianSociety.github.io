@@ -32,14 +32,20 @@ export const SOCIETY_DATA = {
   termCard: {
     title: "OUBS Term Card",
     term: "Michaelmas Term 2026",
-    statusBadge: "Michaelmas 2026 In Preparation",
-    description: "The term card for Michaelmas Term 2026 is currently in preparation. Our events of the term will be published here as a single graphic poster ahead of 0th Week.",
+    statusBadge: "Term Card coming",
+    description: "Join us for welcome drinks on Thursday 15 October at 7pm. More Michaelmas Term 2026 events will be announced here soon.",
     imageUrl: null,
     events: [
       {
         week: "1st Week",
-        title: "Freshers' Welcome Drinks",
-        desc: "Date and location to be announced.",
+        id: "welcome-drinks-2026-10-15",
+        title: "Welcome Drinks",
+        date: "2026-10-15",
+        start: "2026-10-15T19:00:00+01:00",
+        end: "2026-10-15T22:30:00+01:00",
+        location: "The Crown Pub, 59a Cornmarket Street, Oxford, OX1 3HB",
+        description: "Welcome (back) to Oxford! Meet this year's committee and fellow Belgians and friends of Belgium for casual welcome drinks at The Crown Pub.",
+        desc: "Thursday 15 October 2026, 7pm · The Crown Pub, 59a Cornmarket Street, Oxford, OX1 3HB. Meet this year's committee and fellow Belgians and friends of Belgium.",
         icon: "🍻",
         isPlaceholder: false
       },

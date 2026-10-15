@@ -1005,6 +1005,46 @@ section {
   line-height: 1.4;
   margin: 0;
 }
+.termcard-calendar-button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  list-style: none;
+  cursor: pointer;
+}
+.termcard-calendar-button::-webkit-details-marker {
+  display: none;
+}
+.termcard-calendar-options {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 6px;
+  padding: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: white;
+}
+.termcard-calendar-options button,
+.termcard-calendar-options a {
+  padding: 8px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--oxford-blue);
+  font: inherit;
+  font-size: 0.84rem;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.termcard-calendar-options button:hover,
+.termcard-calendar-options a:hover,
+.termcard-calendar-options button:focus-visible,
+.termcard-calendar-options a:focus-visible {
+  background: var(--bg-light, #f5f3ef);
+}
 .termcard-event-row.is-placeholder {
   opacity: 0.75;
 }

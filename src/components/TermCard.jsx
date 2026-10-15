@@ -1,5 +1,6 @@
 import React from 'react';
 import { SOCIETY_DATA } from '../data/societyData';
+import { generateAndDownloadIcs, getGoogleCalendarUrl } from '../utils/calendar';
 
 function FriesSketch() {
   return (
@@ -381,13 +382,31 @@ export default function TermCard() {
                       <div className="termcard-event-info">
                         <h4>{evt.title}</h4>
                         <p>{evt.desc}</p>
+                        {evt.start && (
+                          <details className="termcard-calendar">
+                            <summary
+                              className="btn btn-outline termcard-calendar-button"
+                              aria-label={`Add ${evt.title} to calendar`}
+                            >
+                              Add to Calendar <span aria-hidden="true">▾</span>
+                            </summary>
+                            <div className="termcard-calendar-options">
+                              <button type="button" onClick={() => generateAndDownloadIcs(evt)}>
+                                Download the event
+                              </button>
+                              <a href={getGoogleCalendarUrl(evt)} target="_blank" rel="noopener noreferrer">
+                                Add to Google Calendar
+                              </a>
+                            </div>
+                          </details>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
 
                 <div className="termcard-poster-footer">
-                  <p>🔔 The official term card poster will be published on Instagram ahead of 0th Week.</p>
+                  <p>🔔 More events and the full term card will be announced on Instagram.</p>
                 </div>
               </div>
             )}
