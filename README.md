@@ -1,6 +1,8 @@
 # Oxford University Belgian Society (OUBS) Website (Vite + React)
 
-Draft website for the **Oxford University Belgian Society (OUBS)** built with **Vite**, **React**, and modular CSS components.
+Official website for the **Oxford University Belgian Society (OUBS)** built with **Vite**, **React**, and modular CSS components.
+
+Website: https://oxforduniversitybelgiansociety.github.io/
 
 ---
 

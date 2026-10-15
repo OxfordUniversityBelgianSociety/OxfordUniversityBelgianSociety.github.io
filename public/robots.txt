@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oxforduniversitybelgiansociety.github.io/sitemap.xml
