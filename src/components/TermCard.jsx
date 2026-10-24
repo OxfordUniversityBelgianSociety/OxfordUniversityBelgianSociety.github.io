@@ -2,6 +2,12 @@ import React from 'react';
 import { SOCIETY_DATA } from '../data/societyData';
 import { generateAndDownloadIcs, getGoogleCalendarUrl } from '../utils/calendar';
 
+const eventDateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'short',
+  timeZone: 'Europe/London',
+});
+
 function FriesSketch() {
   return (
     <div className="termcard-sketch-wrap" aria-hidden="true">
@@ -376,12 +382,20 @@ export default function TermCard() {
                 </div>
 
                 <div className="termcard-events-list">
-                  {termCard.events.map((evt, idx) => (
-                    <div key={idx} className={`termcard-event-row ${evt.isPlaceholder ? 'is-placeholder' : ''}`}>
-                      <div className="termcard-event-week">{evt.week}</div>
+                  {termCard.events.map((evt) => (
+                    <div key={evt.id} className="termcard-event-row">
+                      <time className="termcard-event-date" dateTime={evt.date}>
+                        {eventDateFormat.formatToParts(new Date(`${evt.date}T12:00:00Z`)).map(({ type, value }) => (
+                          type === 'day' || type === 'month' ? <span key={type} className={`termcard-date-${type}`}>{value}</span> : null
+                        ))}
+                      </time>
                       <div className="termcard-event-info">
                         <h4>{evt.title}</h4>
-                        <p>{evt.desc}</p>
+                        {evt.detailsPending ? (
+                          <p className="termcard-event-pending">More to follow</p>
+                        ) : (
+                          <p>{evt.desc}</p>
+                        )}
                         {evt.start && (
                           <details className="termcard-calendar">
                             <summary
@@ -406,7 +420,7 @@ export default function TermCard() {
                 </div>
 
                 <div className="termcard-poster-footer">
-                  <p>🔔 More events and the full term card will be announced on Instagram.</p>
+                  <p>Follow along on Instagram for the latest event updates.</p>
                 </div>
               </div>
             )}

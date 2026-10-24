@@ -32,12 +32,11 @@ export const SOCIETY_DATA = {
   termCard: {
     title: "OUBS Term Card",
     term: "Michaelmas Term 2026",
-    statusBadge: "Term Card coming",
-    description: "Join us for welcome drinks on Thursday 15 October at 7pm. More Michaelmas Term 2026 events will be announced here soon.",
+    statusBadge: "Save the dates",
+    description: "Good company, Belgian favourites, and a trip to London. Here's what's on this Michaelmas.",
     imageUrl: null,
     events: [
       {
-        week: "1st Week",
         id: "welcome-drinks-2026-10-15",
         title: "Welcome Drinks",
         date: "2026-10-15",
@@ -46,29 +45,36 @@ export const SOCIETY_DATA = {
         location: "The Crown Pub, 59a Cornmarket Street, Oxford, OX1 3HB",
         description: "Welcome (back) to Oxford! Meet this year's committee and fellow Belgians and friends of Belgium for casual welcome drinks at The Crown Pub.",
         desc: "Thursday 15 October 2026, 7pm · The Crown Pub, 59a Cornmarket Street, Oxford, OX1 3HB. Meet this year's committee and fellow Belgians and friends of Belgium.",
-        icon: "🍻",
-        isPlaceholder: false
+        icon: "🍻"
       },
       {
-        week: "TBA",
-        title: "Event II — In Preparation",
-        desc: "Details tbc.",
-        icon: "⏳",
-        isPlaceholder: true
+        id: "european-drinks-2026-10-29",
+        title: "European Drinks",
+        date: "2026-10-29",
+        start: "2026-10-29T20:00:00+00:00",
+        end: "2026-10-29T23:00:00+00:00",
+        location: "Kings Arms",
+        description: "Join us for European Drinks at Kings Arms, 8pm–11pm.",
+        desc: "Kings Arms · 8pm–11pm",
+        icon: "🍻"
       },
       {
-        week: "TBA",
-        title: "Event III — In Preparation",
-        desc: "Details tbc.",
-        icon: "⏳",
-        isPlaceholder: true
+        id: "london-meetup-2026-11-07",
+        title: "London Meetup",
+        date: "2026-11-07",
+        detailsPending: true
       },
       {
-        week: "TBA",
-        title: "Event IV — In Preparation",
-        desc: "Details tbc.",
-        icon: "⏳",
-        isPlaceholder: true
+        id: "beer-tasting-2026-11-13",
+        title: "Beer Tasting",
+        date: "2026-11-13",
+        detailsPending: true
+      },
+      {
+        id: "european-night-2026-11-30",
+        title: "European Night",
+        date: "2026-11-30",
+        detailsPending: true
       }
     ]
   },
