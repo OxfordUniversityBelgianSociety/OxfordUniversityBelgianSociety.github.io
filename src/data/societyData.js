@@ -61,20 +61,28 @@ export const SOCIETY_DATA = {
       {
         id: "london-meetup-2026-11-07",
         title: "London Meetup",
-        date: "2026-11-07",
-        detailsPending: true
+        date: "2026-11-07"
       },
       {
         id: "beer-tasting-2026-11-13",
         title: "Beer Tasting",
         date: "2026-11-13",
-        detailsPending: true
+        start: "2026-11-13T20:00:00+00:00",
+        end: "2026-11-13T22:30:00+00:00",
+        location: "JCR Dining Room, Magdalen College",
+        description: "Tickets are £16.50 for members and £19.50 for non-members.",
+        desc: "JCR Dining Room, Magdalen College · 8pm · £16.50 members / £19.50 non-members"
       },
       {
-        id: "european-night-2026-11-30",
+        id: "european-night-2026-12-01",
         title: "European Night",
-        date: "2026-11-30",
-        detailsPending: true
+        date: "2026-12-01",
+        start: "2026-12-01T18:30:00+00:00",
+        end: "2026-12-02T00:00:00+00:00",
+        location: "The Isis Farmhouse, Oxford OX4 4EL",
+        description: "Dress code is black tie.",
+        desc: "The Isis Farmhouse · 6:30pm–midnight · Black tie",
+        ticketUrl: "https://fixr.co/event/european-night-mt-26-tickets-855604759"
       }
     ]
   },

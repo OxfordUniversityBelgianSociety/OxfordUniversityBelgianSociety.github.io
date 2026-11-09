@@ -1023,10 +1023,18 @@ section {
   line-height: 1.4;
   margin: 0;
 }
-.termcard-calendar-button {
+.termcard-event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
   margin-top: 10px;
+}
+.termcard-event-actions .btn {
   padding: 6px 12px;
   font-size: 0.8rem;
+}
+.termcard-calendar-button {
   list-style: none;
   cursor: pointer;
 }
@@ -1062,11 +1070,6 @@ section {
 .termcard-calendar-options button:focus-visible,
 .termcard-calendar-options a:focus-visible {
   background: var(--bg-light, #f5f3ef);
-}
-.termcard-event-info .termcard-event-pending {
-  margin-top: 4px;
-  font-size: 0.78rem;
-  font-style: italic;
 }
 .termcard-poster-footer {
   background: var(--bg-card-alt);

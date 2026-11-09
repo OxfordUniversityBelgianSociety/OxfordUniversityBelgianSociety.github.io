@@ -391,28 +391,39 @@ export default function TermCard() {
                       </time>
                       <div className="termcard-event-info">
                         <h4>{evt.title}</h4>
-                        {evt.detailsPending ? (
-                          <p className="termcard-event-pending">More to follow</p>
-                        ) : (
-                          <p>{evt.desc}</p>
-                        )}
-                        {evt.start && (
-                          <details className="termcard-calendar">
-                            <summary
-                              className="btn btn-outline termcard-calendar-button"
-                              aria-label={`Add ${evt.title} to calendar`}
-                            >
-                              Add to Calendar <span aria-hidden="true">▾</span>
-                            </summary>
-                            <div className="termcard-calendar-options">
-                              <button type="button" onClick={() => generateAndDownloadIcs(evt)}>
-                                Download the event
-                              </button>
-                              <a href={getGoogleCalendarUrl(evt)} target="_blank" rel="noopener noreferrer">
-                                Add to Google Calendar
+                        {evt.desc && <p>{evt.desc}</p>}
+                        {(evt.ticketUrl || evt.start) && (
+                          <div className="termcard-event-actions">
+                            {evt.ticketUrl && (
+                              <a
+                                className="btn btn-gold"
+                                href={evt.ticketUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Buy tickets for ${evt.title}`}
+                              >
+                                Buy Tickets
                               </a>
-                            </div>
-                          </details>
+                            )}
+                            {evt.start && (
+                              <details className="termcard-calendar">
+                                <summary
+                                  className="btn btn-outline termcard-calendar-button"
+                                  aria-label={`Add ${evt.title} to calendar`}
+                                >
+                                  Add to Calendar <span aria-hidden="true">▾</span>
+                                </summary>
+                                <div className="termcard-calendar-options">
+                                  <button type="button" onClick={() => generateAndDownloadIcs(evt)}>
+                                    Download the event
+                                  </button>
+                                  <a href={getGoogleCalendarUrl(evt)} target="_blank" rel="noopener noreferrer">
+                                    Add to Google Calendar
+                                  </a>
+                                </div>
+                              </details>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>
